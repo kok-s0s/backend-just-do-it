@@ -16,7 +16,7 @@ export class LeetcodeController {
   }
 
   @Get('topictype')
-  getTopictype(): any {
+  getTopicType(): any {
     return this.leetcodeService.getTopicType();
   }
 }
