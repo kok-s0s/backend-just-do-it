@@ -16,6 +16,7 @@ model LeetCodeQuestion {
   topic                String              @unique
   description          String
   link                 String
+  difficulty           String?
   LeetCodeDifficulty   LeetCodeDifficulty? @relation(fields: [leetCodeDifficultyId], references: [id])
   leetCodeDifficultyId String?             @db.ObjectId
   TopicType            TopicType?          @relation(fields: [topicTypeId], references: [id])
