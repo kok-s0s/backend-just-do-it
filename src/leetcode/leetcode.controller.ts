@@ -5,7 +5,7 @@ import { LeetcodeService } from './leetcode.service';
 export class LeetcodeController {
   constructor(private readonly leetcodeService: LeetcodeService) {}
 
-  @Get('question')
+  @Get('questions')
   getQuestions(): any {
     return this.leetcodeService.getQuestions();
   }
@@ -18,5 +18,10 @@ export class LeetcodeController {
   @Get('topictype')
   getTopicType(): any {
     return this.leetcodeService.getTopicType();
+  }
+
+  @Get('randomquestions')
+  getRandomQuestions(): any {
+    return this.leetcodeService.getRandomQuestions();
   }
 }

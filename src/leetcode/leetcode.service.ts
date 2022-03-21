@@ -25,6 +25,26 @@ const getTopicTypeForMongoDB = async () => {
   return topictype;
 };
 
+const getRandomQuestionForMongoDB = async () => {
+  const questions = await prisma.leetCodeQuestion.findMany();
+
+  const randomOne = Math.random(),
+    randomTwo = Math.random(),
+    randomThree = Math.random();
+
+  const numHandle = (randomNum: number) => {
+    return Math.floor(randomNum * questions.length);
+  };
+
+  const [one, two, three] = [
+    numHandle(randomOne),
+    numHandle(randomTwo),
+    numHandle(randomThree),
+  ];
+
+  return [questions[one], questions[two], questions[three]];
+};
+
 @Injectable()
 export class LeetcodeService {
   getQuestions(): any {
@@ -61,5 +81,17 @@ export class LeetcodeService {
       });
 
     return topictype;
+  }
+
+  getRandomQuestions(): any {
+    const randomQuestions = getRandomQuestionForMongoDB()
+      .catch((e) => {
+        throw e;
+      })
+      .finally(async () => {
+        await prisma.$disconnect();
+      });
+
+    return randomQuestions;
   }
 }
