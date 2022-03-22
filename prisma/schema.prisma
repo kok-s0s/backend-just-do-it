@@ -35,3 +35,22 @@ model TopicType {
   name      String             @unique
   questions LeetCodeQuestion[]
 }
+
+model Book {
+  id                   String              @id @default(auto()) @map("_id") @db.ObjectId
+  name                 String              @unique
+  author               String
+  image                String?
+  description          String
+  link                 String
+  classification       String
+  BookClassification   BookClassification? @relation(fields: [bookClassificationId], references: [id])
+  bookClassificationId String?             @db.ObjectId
+}
+
+model BookClassification {
+  id          String @id @default(auto()) @map("_id") @db.ObjectId
+  name        String @unique
+  description String
+  books       Book[]
+}
