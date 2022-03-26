@@ -111,3 +111,5 @@ datasource db {
 2. 图片存储我使用的图床方式，利用 PicGo 和 Github 的搭配自动生成图片的链接，将链接存储到 MongoDB Altas 这个数据库中的；
 
 3. 更多不懂的可以看我的 commit，我的 commit 信息虽说写不咋滴，但是我尽可能地展示我是如何一步一步构建起这个项目的，学习这个项目优先建议把上面出现的链接都点一点，利用官方文档来进行学习；
+
+4. 项目更新流程 --> 服务器 `git pull` 项目，执行 `npx prisma generate` 重新构建映射，再执行 `yarn build` 打包项目，用 pm2 重启项目 `pm2 restart just-do-it` 即可; 
