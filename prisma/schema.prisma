@@ -54,3 +54,21 @@ model BookClassification {
   description String
   books       Book[]
 }
+
+model Project {
+  id            String       @id @default(auto()) @map("_id") @db.ObjectId
+  name          String       @unique
+  description   String
+  link          String
+  image         String
+  ProjectType   ProjectType? @relation(fields: [projectTypeId], references: [id])
+  projectTypeId String?      @db.ObjectId
+}
+
+model ProjectType {
+  id          String    @id @default(auto()) @map("_id") @db.ObjectId
+  name        String    @unique
+  description String
+  image       String
+  projects    Project[]
+}
