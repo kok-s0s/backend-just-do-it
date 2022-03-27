@@ -72,3 +72,21 @@ model ProjectType {
   image       String
   projects    Project[]
 }
+
+model WebSite {
+  id            String       @id @default(auto()) @map("_id") @db.ObjectId
+  name          String       @unique
+  description   String
+  link          String
+  image         String
+  WebSiteType   WebSiteType? @relation(fields: [webSiteTypeId], references: [id])
+  webSiteTypeId String?      @db.ObjectId
+}
+
+model WebSiteType {
+  id          String    @id @default(auto()) @map("_id") @db.ObjectId
+  name        String    @unique
+  description String
+  image       String
+  websites    WebSite[]
+}
