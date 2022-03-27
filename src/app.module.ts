@@ -4,9 +4,10 @@ import { AppService } from './app.service';
 import { LeetcodeModule } from './leetcode/leetcode.module';
 import { BooksModule } from './books/books.module';
 import { PracticalprojectModule } from './practicalproject/practicalproject.module';
+import { WebsiteModule } from './website/website.module';
 
 @Module({
-  imports: [LeetcodeModule, BooksModule, PracticalprojectModule],
+  imports: [LeetcodeModule, BooksModule, PracticalprojectModule, WebsiteModule],
   controllers: [AppController],
   providers: [AppService],
 })
