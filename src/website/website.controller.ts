@@ -6,7 +6,12 @@ export class WebsiteController {
   constructor(private readonly webSite: WebsiteService) {}
 
   @Get('websites')
-  getQuestions(): any {
+  getWebSites(): any {
     return this.webSite.getWebSites();
+  }
+
+  @Get('articles')
+  getArticles(): any {
+    return this.webSite.getArticles();
   }
 }
