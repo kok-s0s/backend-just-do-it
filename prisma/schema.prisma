@@ -90,3 +90,9 @@ model WebSiteType {
   image       String
   websites    WebSite[]
 }
+
+model Article {
+  id    String @id @default(auto()) @map("_id") @db.ObjectId
+  title String @unique
+  link  String
+}
