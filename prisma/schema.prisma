@@ -6,6 +6,11 @@ generator client {
   previewFeatures = ["mongoDb"]
 }
 
+generator erd {
+  provider = "prisma-erd-generator"
+  output   = "../ERD.pdf"
+}
+
 datasource db {
   provider = "mongodb"
   url      = env("DATABASE_URL")
