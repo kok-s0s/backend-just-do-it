@@ -8,7 +8,7 @@ generator client {
 
 generator erd {
   provider = "prisma-erd-generator"
-  output   = "../ERD.pdf"
+  output   = "../ERD.svg"
 }
 
 datasource db {
@@ -100,4 +100,19 @@ model Article {
   id    String @id @default(auto()) @map("_id") @db.ObjectId
   title String @unique
   link  String
+}
+
+model BookMark {
+  id                 String            @id @default(auto()) @map("_id") @db.ObjectId
+  name               String            @unique
+  description        String
+  link               String
+  BookmarkCategory   BookmarkCategory? @relation(fields: [bookmarkCategoryId], references: [id])
+  bookmarkCategoryId String?           @db.ObjectId
+}
+
+model BookmarkCategory {
+  id        String     @id @default(auto()) @map("_id") @db.ObjectId
+  name      String     @unique
+  bookmarks BookMark[]
 }

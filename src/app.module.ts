@@ -6,6 +6,7 @@ import { BooksModule } from './books/books.module';
 import { PracticalprojectModule } from './practicalproject/practicalproject.module';
 import { WebsiteModule } from './website/website.module';
 import { QuotesModule } from './quotes/quotes.module';
+import { BookmarkModule } from './bookmark/bookmark.module';
 
 @Module({
   imports: [
@@ -14,6 +15,7 @@ import { QuotesModule } from './quotes/quotes.module';
     PracticalprojectModule,
     WebsiteModule,
     QuotesModule,
+    BookmarkModule,
   ],
   controllers: [AppController],
   providers: [AppService],
