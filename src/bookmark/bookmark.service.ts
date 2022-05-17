@@ -11,6 +11,11 @@ const getBookmarkCategoryForMongoDB = async () => {
   return bookmarkCategory;
 };
 
+const getBookmarksForMongoDB = async () => {
+  const bookmarks = await prisma.bookMark.findMany();
+  return bookmarks;
+};
+
 @Injectable()
 export class BookmarkService {
   getBookmarkCategory(): any {
@@ -23,5 +28,17 @@ export class BookmarkService {
       });
 
     return bookmarkCategory;
+  }
+
+  getBookmarks(): any {
+    const bookmarks = getBookmarksForMongoDB()
+      .catch((e) => {
+        throw e;
+      })
+      .finally(async () => {
+        await prisma.$disconnect();
+      });
+
+    return bookmarks;
   }
 }

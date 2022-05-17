@@ -9,4 +9,9 @@ export class BookmarkController {
   getTopicType(): any {
     return this.bookmarkService.getBookmarkCategory();
   }
+
+  @Get('list')
+  getBookMarks(): any {
+    return this.bookmarkService.getBookmarks();
+  }
 }
