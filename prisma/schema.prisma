@@ -116,3 +116,15 @@ model BookmarkCategory {
   name      String     @unique
   bookmarks BookMark[]
 }
+
+model Sentence {
+  id      String   @id @default(auto()) @map("_id") @db.ObjectId
+  content String   @unique
+  date    DateTime
+}
+
+model Quote {
+  id       String @id @default(auto()) @map("_id") @db.ObjectId
+  language String
+  sentence String @unique
+}
