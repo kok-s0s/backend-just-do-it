@@ -6,7 +6,7 @@ export class PracticalprojectController {
   constructor(private readonly practicalProject: PracticalprojectService) {}
 
   @Get('projects')
-  getQuestions(): any {
+  getProjects(): any {
     return this.practicalProject.getProjects();
   }
 }

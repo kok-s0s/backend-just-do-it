@@ -6,12 +6,12 @@ export class BookmarkController {
   constructor(private readonly bookmarkService: BookmarkService) {}
 
   @Get('category')
-  getTopicType(): any {
+  getBookmarkCategory(): any {
     return this.bookmarkService.getBookmarkCategory();
   }
 
   @Get('list')
-  getBookMarks(): any {
+  getBookmarks(): any {
     return this.bookmarkService.getBookmarks();
   }
 }

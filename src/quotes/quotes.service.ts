@@ -21,10 +21,6 @@ const getQuoteForMongoDB = async (data: {
 
 @Injectable()
 export class QuotesService {
-  getTodayQuote(): any {
-    return 'toadyQuote';
-  }
-
   getQuote(data: { quotesID: Array<{ id: string }> }): any {
     const quote = getQuoteForMongoDB(data)
       .catch((e) => {
